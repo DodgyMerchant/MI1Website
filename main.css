@@ -1,0 +1,160 @@
+:root {
+  font:
+    normal 1em/1 "Lexend",
+    serif;
+
+  --titleFont: bold 4em/1 "Kameron", sans-serif;
+  --titleFontCol: white;
+
+  --navFontCol: white;
+  --navFontColCurrent: aqua;
+  --navBG: #555;
+  --navHighBG: #777;
+
+  --headerBG: #333;
+}
+
+/* #region groundwork */
+/* settings to make things usable */
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+html p,
+html br {
+  /* line-height: normal; */
+  line-height: 1.5rem;
+}
+
+@media (prefers-reduced-motion) {
+  html {
+    scroll-behavior: initial;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin-block: 0;
+  margin: 0;
+  padding-inline: 0;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+label {
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+li > a {
+  text-decoration: none;
+}
+
+/* #endregion -groundwork*/
+
+.contained {
+  /* restricts to readble length */
+  width: 900px;
+}
+
+p {
+  padding: 1em 0;
+}
+
+/* #region Header*/
+
+header {
+  background-color: var(--headerBG);
+  text-align: center;
+}
+#title {
+  color: var(--titleFontCol);
+  font: var(--titleFont, bold 2em/1 serif);
+  text-align: left;
+  padding: 1rem;
+}
+
+/* #endregion -Header*/
+/* #region Navigation*/
+
+#siteNav {
+  background: var(--navBG);
+  position: fixed;
+}
+
+#siteNav ul {
+  display: flex;
+  justify-content: center;
+}
+
+#siteNav li > a {
+  color: var(--navFontCol);
+  padding: 1em;
+  display: block;
+}
+#siteNav li > a:hover {
+  background: var(--navHighBG);
+}
+#siteNav a:target {
+  color: var(--navFontColCurrent, inherit);
+  background: var(--navHighBG);
+}
+
+/* #endregion -Navigation*/
+/* #region Main*/
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  /* display: flex; */
+  /* align-items: center; */
+  /* gap: 30px; */
+}
+
+.content .text {
+  flex: 1;
+}
+
+.content .image img {
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+/* #endregion -Main*/
+/* #region Footer*/
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  bottom: 0;
+  width: 100%;
+}
+
+/* #endregion -Footzer*/

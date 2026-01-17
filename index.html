@@ -1,36 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>FutureMind University</title>
+
+    <!-- Fonts -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Kameron:wght@400..700&family=Lexend:wght@100..900&display=swap");
+    </style>
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
   </head>
   <body>
     <header>
-      <h1>FutureMind University</h1>
+      <h1 id="title">FutureMind<br />University</h1>
+      <nav id="siteNav">
+        <ul>
+          <li><a id="index" href="./index.html#index">Home</a></li>
+          <li><a id="kontakt" href="./kontakt.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="#">Start</a></li>
-        <li><a href="#">Über uns</a></li>
-        <li><a href="#">Kontakt</a></li>
-      </ul>
-    </nav>
-
-    <main>
+    <main class="contained">
       <section class="content">
-        <div class="text">
-          <h2>Willkommen</h2>
-          <p>Werde unersetzbar.</p>
-        </div>
+        <header>
+          <h2>Werde unersetzbar</h2>
+        </header>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
+          veritatis error impedit nobis nam blanditiis labore neque sunt
+          corrupti inventore tenetur explicabo ex, dolorem cupiditate expedita!
+          Maxime consequuntur eos saepe! Lorem ipsum dolor sit amet consectetur,
+          adipisicing elit. Quia natus quod similique, nihil, fugiat in ducimus
+          ab magnam quo blanditiis voluptatem facilis harum? Praesentium labore
+          aspernatur sit? Iste, id perspiciatis? Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Repudiandae praesentium, possimus
+          officia, accusamus vitae maxime eos fugit in ipsum et quisquam
+          corrupti iste vel eaque dicta suscipit quis est eius.
+        </p>
+        <img src="./content/A4 Original Scaled.svg" alt="Beispielbild" />
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente,
+          maiores nobis sequi ad eaque placeat! Cupiditate autem dolorum ipsam
+          iste similique quos neque in aperiam, tenetur, eius nulla omnis ab.
+        </p>
 
-        <div class="image">
-          <img src="image.jpg" alt="Beispielbild" />
-        </div>
+        <a href="./content/Plakat FutureMind University.pdf" download>
+          Download
+        </a>
+      </section>
+
+      <section class="content">
+        <header>
+          <h2>Werbespot</h2>
+        </header>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quod
+          soluta nihil repudiandae, laborum aut omnis deserunt voluptate
+          exercitationem porro, quam magnam illo. Laborum ex accusantium alias
+          vitae laudantium vel.
+        </p>
+        <audio
+          controls
+          src="./content/Radisospot FutureMind University.mp3"
+        ></audio>
+        <a href="./content/Radisospot FutureMind University.mp3" download
+          >Download</a
+        >
       </section>
     </main>
 
