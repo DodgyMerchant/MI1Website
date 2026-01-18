@@ -3,6 +3,8 @@
     normal 1em/1 "Lexend",
     serif;
 
+  color: black;
+
   --siteBG: rgb(224, 231, 239);
   --siteWidth: 1200px;
 
@@ -18,6 +20,27 @@
   --navHighBG: #ffffff69;
 
   --headerBG: white;
+
+  --highlight: #00eeff1e;
+}
+
+.darkmode {
+  --navcol: rgb(98, 0, 128);
+
+  color: #f8f8f2;
+
+  --siteBG: #282a36;
+  --mainBG: #44475a;
+  --titleFontCol: black;
+
+  --navFontColActive: rgb(255, 255, 255);
+  --navFontCol: rgb(235, 247, 255);
+  --navFontColCurrent: #2d789e;
+  --navBG: #003366;
+  --navHighBG: #ffffff69;
+
+  --headerBG: #44475a;
+  --highlight: #00eeff1e;
 }
 
 /* #region groundwork */
@@ -81,12 +104,16 @@ li > a {
 /* #endregion -groundwork*/
 /* #region generell*/
 
+body {
+  min-height: 100vh;
+}
+
 * {
   overflow: visible;
 }
 
 p {
-  padding: 1em 0;
+  padding: 0.5em 0;
 }
 
 h1,
@@ -105,7 +132,7 @@ body {
   grid-template:
     "gridHeader gridHeader gridHeader" max-content
     "gridNav gridNav gridNav" max-content
-    ". gridContent ." max-content
+    ". gridContent ." 1fr
     "gridFooter gridFooter gridFooter" max-content / 1fr var(--siteWidth) 1fr;
 
   background: var(--siteBG, lightgray);
@@ -151,16 +178,17 @@ body > header {
   background-position: center;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-flow: column;
   text-align: center;
 
   color: white;
 }
-.hero h2 {
+.hero .heroHeading {
   font-size: 3em;
+  font: var(--titleFont);
 }
-.hero h2 + p {
+.hero .heroHeading + p {
   font-size: 1.5em;
 }
 
@@ -172,7 +200,12 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
+
 nav ul {
   display: flex;
   justify-content: left;
@@ -195,6 +228,14 @@ nav a:hover {
   background: var(--navHighBG);
 }
 
+#theme-toggle {
+  aspect-ratio: 1 / 1;
+  font-size: 2em;
+  background-color: var(--navFontColCurrent);
+  border: 0;
+  border-radius: 0.4em;
+}
+
 /* #endregion -Navigation*/
 /* #region Main*/
 
@@ -214,19 +255,23 @@ main section {
   background: var(--mainBG);
 }
 
+/* #endregion -Main*/
+/* #region section*/
+
 section {
   padding: 1.2em;
   padding-bottom: 3em;
 }
-section > * + * {
+/* section > * + * {
   margin-top: 1rem;
-}
+} */
 section > :not(header) {
   margin-left: 1.5em;
 }
 
 section h2 {
   font-size: 2.5em;
+  margin-bottom: 0.2em;
 }
 
 section img {
@@ -234,7 +279,40 @@ section img {
   width: auto;
 }
 
-/* #endregion -Main*/
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: nowrap; */
+  flex-wrap: wrap;
+  align-content: stretch;
+  /* justify-content: space-between; */ /*original*/
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+section .flexy {
+  display: flex;
+  flex-flow: row;
+}
+
+section ul {
+  background-color: var(--highlight);
+  width: fit-content;
+  padding: 1em;
+  border-radius: 15px;
+}
+section li {
+  padding: 0.5em 0;
+  padding-left: 1em;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+section div {
+  padding: 0.5em 0;
+}
+
+/* #endregion section*/
 /* #region Footer*/
 
 footer {
@@ -245,3 +323,21 @@ footer {
 }
 
 /* #endregion -Footzer*/
+
+.selectAll {
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
+
+.btn {
+  font-size: 1.2em;
+  display: block;
+  background: var(--navBG);
+  color: white;
+  padding: 0.7em 1.4em;
+  text-decoration: none;
+  border-radius: 5px;
+  width: fit-content;
+}
