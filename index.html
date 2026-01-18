@@ -15,17 +15,21 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <header>
-      <h1 id="title">FutureMind<br />University</h1>
-      <nav id="siteNav">
-        <ul>
-          <li><a id="index" href="./index.html#index">Home</a></li>
-          <li><a id="kontakt" href="./kontakt.html#kontakt">Kontakt</a></li>
-        </ul>
-      </nav>
+    <header class="gridHeader">
+      <h1 id="title">
+        <a href="./index.html#index"
+          ><img src="./content/Title.svg" alt="FutureMind University"
+        /></a>
+      </h1>
     </header>
-
-    <main class="contained">
+    <nav class="gridNav" id="siteNav">
+      <ul>
+        <li><a id="index" href="./index#index">Über uns</a></li>
+        <li><a id="kampagne" href="./kampagne#kampagne">Kampagne</a></li>
+        <li><a id="kontakt" href="./kontakt#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <main class="gridContent">
       <section>
         <header>
           <h2>Werde unersetzbar</h2>
@@ -74,7 +78,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="gridFooter">
       <p>&copy; 2026</p>
     </footer>
   </body>
