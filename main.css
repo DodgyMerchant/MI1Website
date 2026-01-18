@@ -11,12 +11,13 @@
   --titleFont: bold 4em/1 "Kameron", sans-serif;
   --titleFontCol: white;
 
-  --navFontCol: Black;
-  --navFontColCurrent: darkblue;
-  --navBG: #00000000;
-  --navHighBG: #ffffff54;
+  --navFontColActive: rgb(255, 255, 255);
+  --navFontCol: rgb(235, 247, 255);
+  --navFontColCurrent: #2d789e;
+  --navBG: #003366;
+  --navHighBG: #ffffff69;
 
-  --headerBG: #white;
+  --headerBG: white;
 }
 
 /* #region groundwork */
@@ -78,6 +79,7 @@ li > a {
 }
 
 /* #endregion -groundwork*/
+/* #region generell*/
 
 * {
   overflow: visible;
@@ -87,19 +89,25 @@ p {
   padding: 1em 0;
 }
 
-@media screen {
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font: var(--titleFont, bold 2em/1 serif);
 }
+
+/* #endregion generell*/
+/* #region layout*/
 
 body {
   display: grid;
-  grid-template-areas:
-    "gridHeader gridHeader"
-    "gridNav gridContent"
-    "gridFooter gridFooter";
-  /* grid-template-columns: 1fr calc(min(var(--siteWidth))); */
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: max-content;
-  gap: 1em;
+  grid-template:
+    "gridHeader gridHeader gridHeader" max-content
+    "gridNav gridNav gridNav" max-content
+    ". gridContent ." max-content
+    "gridFooter gridFooter gridFooter" max-content / 1fr var(--siteWidth) 1fr;
+
   background: var(--siteBG, lightgray);
 }
 .gridHeader {
@@ -115,54 +123,75 @@ body {
   grid-area: gridFooter;
 }
 
-body > * {
-  /* width: calc(min(var(--siteWidth), 100%)); */
-}
-
+/* #endregion layout*/
 /* #region Site Header*/
 
 body > header {
-  background-color: var(--headerBG, white);
 }
 #title {
-  color: var(--titleFontCol, white);
-  font: var(--titleFont, bold 2em/1 serif);
-  text-align: left;
+  color: var(--titleFontCol, black);
   padding: 1rem;
-  aspect-ratio: auto;
+  background: var(--headerBG);
 }
 #title img {
-  max-width: 50vw;
-  max-height: 5vh;
+  max-height: 15vh;
+  width: auto;
+  aspect-ratio: 1;
+  position: relative;
+}
+/* #endregion -Header*/
+/* #region hero*/
+
+.hero {
+  height: 40vh;
+  background:
+    linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)),
+    url("content/A4\ Original\ Scaled.svg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-flow: column;
+  text-align: center;
+
+  color: white;
+}
+.hero h2 {
+  font-size: 3em;
+}
+.hero h2 + p {
+  font-size: 1.5em;
 }
 
-/* #endregion -Header*/
+/* #endregion hero*/
 /* #region Navigation*/
 
-#siteNav {
-  background: var(--navBG, transparent);
+nav {
+  background: var(--navBG);
   position: sticky;
-  top: 1em;
-  left: 1em;
-  height: max-content;
+  top: 0;
+  z-index: 1000;
 }
-
-#siteNav ul {
+nav ul {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  justify-content: left;
+  list-style: none;
 }
-
-#siteNav li > a {
+nav a {
+  display: block;
   color: var(--navFontCol);
   padding: 1em;
-  display: block;
+  font-weight: bold;
+  transition: 0.3s;
+  width: 10em;
+  text-align: left;
 }
-#siteNav li > a:hover {
-  background: var(--navHighBG);
+nav a.active {
+  color: var(--navFontColActive);
+  background: var(--navFontColCurrent);
 }
-#siteNav a:target {
-  color: var(--navFontColCurrent, inherit);
+nav a:hover {
   background: var(--navHighBG);
 }
 
@@ -170,15 +199,39 @@ body > header {
 /* #region Main*/
 
 main {
-  background: var(--mainBG);
   display: flex;
   flex-direction: column;
-}
-main > section h2 {
+  --padding: 3em;
+  gap: var(--padding);
+  padding: var(--padding) 0em;
 }
 
-main > img {
+main > * {
+  border-radius: 10px;
+}
+
+main section {
+  background: var(--mainBG);
+}
+
+section {
+  padding: 1.2em;
+  padding-bottom: 3em;
+}
+section > * + * {
+  margin-top: 1rem;
+}
+section > :not(header) {
+  margin-left: 1.5em;
+}
+
+section h2 {
+  font-size: 2.5em;
+}
+
+section img {
   max-height: 50vh;
+  width: auto;
 }
 
 /* #endregion -Main*/
