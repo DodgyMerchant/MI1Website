@@ -83,9 +83,9 @@ p {
   padding: 1em 0;
 }
 
-/* #region Header*/
+/* #region Site Header*/
 
-header {
+body > header {
   background-color: var(--headerBG);
   text-align: center;
 }
@@ -101,7 +101,6 @@ header {
 
 #siteNav {
   background: var(--navBG);
-  position: fixed;
 }
 
 #siteNav ul {
@@ -129,21 +128,10 @@ main {
   display: flex;
   flex-direction: column;
 }
-
-.content {
-  /* display: flex; */
-  /* align-items: center; */
-  /* gap: 30px; */
+main > section h2 {
+  
 }
 
-.content .text {
-  flex: 1;
-}
-
-.content .image img {
-  max-width: 300px;
-  border-radius: 8px;
-}
 
 /* #endregion -Main*/
 /* #region Footer*/
